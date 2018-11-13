@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import MessagesScreen from '../screens/MessagesScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -16,45 +16,41 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const MessagesStack = createStackNavigator({
+  Messages: MessagesScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+MessagesStack.navigationOptions = {
+  tabBarLabel: 'Messages',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-chatbubbles' : 'md-chatbubbles'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  ProfileStack,
+  MessagesStack,
 });

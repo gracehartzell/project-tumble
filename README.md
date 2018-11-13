@@ -26,6 +26,8 @@ so that great ideas can be realized in the world!
 
 ### Technologies Used 
 * React Native
+* Expo CLI
+* Xcode
 * Firebase
 * Sketch 
 
